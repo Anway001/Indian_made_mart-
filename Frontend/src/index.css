@@ -36,6 +36,7 @@ body {
 }
 
 /* Input fields */
+.container input[type="text"],
 .container input[type="email"],
 .container input[type="password"] {
     width: 100%;

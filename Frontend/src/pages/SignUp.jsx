@@ -2,7 +2,7 @@ import React from 'react'
 
 const SignUp = () => {
   return (
-    <div>
+    <div className='container'>
       <h1>Sign Up</h1>
       <form>
         <label htmlFor='name'>Name</label>

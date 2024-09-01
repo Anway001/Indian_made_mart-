@@ -14,6 +14,8 @@ const SignUp = () => {
         <br/>
         <label htmlFor='password'>Password</label>
         <input type = "password" name = 'password' placeholder='Enter Your Password'></input>
+        <br/>
+        <button>SignUp</button>
         </form>
       
     </div>

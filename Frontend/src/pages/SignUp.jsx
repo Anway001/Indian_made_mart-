@@ -1,7 +1,10 @@
 import React from 'react'
+import Navbar from '../Components/Navbar'
 
 const SignUp = () => {
   return (
+    <>
+    <Navbar/>
     <div className='container'>
       <h1>Sign Up</h1>
       <form>
@@ -19,6 +22,7 @@ const SignUp = () => {
         </form>
       
     </div>
+    </>
   )
 }
 

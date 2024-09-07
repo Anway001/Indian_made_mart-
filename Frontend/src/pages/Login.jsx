@@ -1,7 +1,10 @@
 import React from "react";
+import Navbar from "../Components/Navbar";
 
 function Login() {
   return(
+    <>
+    <Navbar />
     <div className="container">
         <h1>Login</h1>
         <form>
@@ -14,6 +17,7 @@ function Login() {
             <button type="submit">Login</button>
         </form>
     </div>
+    </>
   )
 }
 

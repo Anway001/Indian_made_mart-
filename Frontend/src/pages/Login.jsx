@@ -1,10 +1,11 @@
 import React from "react";
+import {Link} from "react-router-dom";
 import Navbar from "../Components/Navbar";
 
 function Login() {
   return(
     <>
-    <Navbar />
+    
     <div className="container">
         <h1>Login</h1>
         <form>
@@ -14,11 +15,19 @@ function Login() {
             <label htmlFor="password">Password</label>
             <input type="password" name = "password" placeholder="Enter Your Password"></input>
             <br />
+
+            <span>Dont have an account.. 
+              <Link to="/signup">Signup</Link>
+              </span> 
             <button type="submit">Login</button>
         </form>
+        
     </div>
     </>
   )
+
+
 }
 
 export default Login;
+

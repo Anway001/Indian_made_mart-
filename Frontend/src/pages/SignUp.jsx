@@ -1,10 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import './SignUp.css'
 import Navbar from '../Components/Navbar'
 
 const SignUp = () => {
   return (
     <>
-    <Navbar/>
+   
     <div className='container'>
       <h1>Sign Up</h1>
       <form>
@@ -18,7 +20,13 @@ const SignUp = () => {
         <label htmlFor='password'>Password</label>
         <input type = "password" name = 'password' placeholder='Enter Your Password'></input>
         <br/>
+        
+          
+        <span>already a user 
+          <Link to = '/login'>Login</Link>
+           </span>
         <button>SignUp</button>
+
         </form>
       
     </div>

@@ -1,0 +1,83 @@
+/* Hero Section Styles */
+.heroSection {
+    background-image: url('https://designerapp.officeapps.live.com/designerapp/document.ashx?path=/6333a2bd-bf74-4ec0-a907-a32775b02f10/DallEGeneratedImages/dalle-3e27985f-f5fb-400c-ad8a-ffde7e8e76f10251676347799649800100.jpg&dcHint=KoreaCentral&fileToken=f1b3f9dc-6c32-41bf-bd96-c0fcea9d946f');
+    background-size: cover;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+  }
+  
+  .heroContent {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .heroTitle {
+    font-size: 3em;
+    margin-bottom: 20px;
+  }
+  
+  .heroText {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+  }
+  
+  .heroButton {
+    background-color: #e74c3c;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    font-size: 1em;
+    cursor: pointer;
+  }
+  
+  /* Featured Products Section */
+  .featuredProductsSection {
+    padding: 40px 20px;
+    text-align: center;
+  }
+  
+  .productGrid {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+
+  }
+  
+  /* .productCard {
+    border: 1px solid #ddd;
+    padding: 10px;
+    width: 200px;
+    text-align: center;
+    border-radius: 1px;
+  } */
+  
+  .productImage {
+    width: 100%;
+    height: auto;
+  }
+
+  .productGrid .productCard .buyButton{
+    background-color: #000000;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 10px;
+
+  }
+  
+  /* About Section Styles */
+  .aboutSection {
+    background-color: #ecf0f1;
+    padding: 40px 20px;
+    text-align: center;
+  }
+  
+  /* Footer Styles */
+  .footer {
+    background-color: #2c3e50;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+  }
+  

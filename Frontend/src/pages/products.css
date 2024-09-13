@@ -1,0 +1,44 @@
+/* Hero Section Styles */
+.heroproducts {
+    /* background-image: url('https://designerapp.officeapps.live.com/designerapp/document.ashx?path=/6333a2bd-bf74-4ec0-a907-a32775b02f10/DallEGeneratedImages/dalle-3e27985f-f5fb-400c-ad8a-ffde7e8e76f10251676347799649800100.jpg&dcHint=KoreaCentral&fileToken=f1b3f9dc-6c32-41bf-bd96-c0fcea9d946f'); */
+    background-color:aliceblue;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+    position: relative;
+}
+
+
+
+.heroproducts__div h1 {
+    font-size: 2.8em;
+    color: black;
+    margin-bottom: 20px;
+}
+
+.heroproducts__div input[type="search"] {
+    width: 60%;
+    padding: 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    
+}
+
+.heroproducts__div button {
+    padding: 15px 30px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    font-size: 1em;
+    cursor: pointer;
+    margin-left: 5px;
+    border-radius: 5px;
+}
+
+.heroproducts__div button:hover {
+    background-color: #c0392b;
+}

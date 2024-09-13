@@ -4,7 +4,7 @@ import Navbar from '../Components/Navbar';
 const About = () => {
   return (
     <>
-    <Navbar />
+    
     <section style={styles.section}>
       <h2>About Us</h2>
       <p>

@@ -23,7 +23,7 @@ const Contact = () => {
 
   return (
     <>
-    <Navbar/>
+    
     <section style={styles.section}>
       <h2>Contact Us</h2>
       <form onSubmit={handleSubmit} style={styles.form}>

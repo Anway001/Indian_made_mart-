@@ -1,100 +1,46 @@
-/* src/Navbar.css */
-
-/* General styling for the navbar */
+/* Navbar Styles */
 .navbar {
-    background-color: #2c3e50; /* Dark background */
-    color: #ecf0f1; /* Light text color */
-    width: 100%;
-    position: fixed; /* Fixed position for the navbar */
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  }
-  
-  /* Container for aligning content */
-  .navbar-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px; /* Max width for large screens */
-    margin: 0 auto; /* Centering the content */
-    padding: 10px 20px;
-  }
-  
-  /* Logo styling */
-  .navbar-logo a {
-    color: #ecf0f1;
-    font-size: 24px;
-    font-weight: bold;
-    text-decoration: none;
-  }
-  
-  /* List of links */
-  .navbar-links {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    
-  }
-  
-  /* Styling for each link */
-  .navbar-links li a {
-    color: #ecf0f1;
-    text-decoration: none;
-    font-size: 18px;
-    transition: color 0.3s ease;
-  }
-  
-  /* Hover effect on links */
-  .navbar-links li a:hover {
-    color: #3498db; /* Light blue hover effect */
-  }
-  
-  /* Toggle button for small screens */
-  .navbar-toggle {
-    display: none; /* Hidden by default */
-    cursor: pointer;
-    color: #ecf0f1;
-  }
-  
-  /* Responsive design for smaller screens */
-  @media (max-width: 768px) {
-    .navbar-links {
-      display: none; /* Hide links by default on small screens */
-      flex-direction: column;
-      background-color: #2c3e50; /* Background color for the dropdown */
-      position: absolute;
-      top: 60px; /* Adjust based on the navbar height */
-      left: 0;
-      width: 100%;
-      padding: 10px 0;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-  
-    .navbar-links.active {
-      display: flex; /* Show the links when active */
-    }
-  
-    .navbar-toggle {
-      display: block; /* Show toggle button on small screens */
-    }
-  }
-  
-  /* Optional animations for dropdown */
-  .navbar-links.active li {
-    animation: slideIn 0.3s forwards;
-  }
-  
-  @keyframes slideIn {
-    from {
-      opacity: 0;
-      transform: translateY(-10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
+  background-color: #2c3e50;
+  /* background-image: url('https://designerapp.officeapps.live.com/designerapp/document.ashx?path=/6333a2bd-bf74-4ec0-a907-a32775b02f10/DallEGeneratedImages/dalle-3e27985f-f5fb-400c-ad8a-ffde7e8e76f10251676347799649800100.jpg&dcHint=KoreaCentral&fileToken=f1b3f9dc-6c32-41bf-bd96-c0fcea9d946f'); */
+  padding: 20px 0;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbarContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.logo {
+  font-size: 1.8em;
+  margin: 0;
+}
+
+.navList {
+  list-style-type: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.navItem {
+  margin: 0 15px;
+}
+
+.navLink {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.navLink:hover {
+  text-decoration: underline;
+}

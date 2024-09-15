@@ -1,14 +1,16 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import Navbar from "../Components/Navbar";
+import "./Login.css"
 
 function Login() {
   return(
     <>
     
     <div className="container">
-        <h1>Login</h1>
+       
         <form>
+        <h1>Login</h1>
             <label htmlFor="email">Email:</label>
             <input type="email"  name = "email" placeholder="Enter Your Email"></input>
             <br />
@@ -19,7 +21,7 @@ function Login() {
             <span>Dont have an account.. 
               <Link to="/signup">Signup</Link>
               </span> 
-            <button type="submit">Login</button>
+            <button className='login-btn'type="submit">Login</button>
         </form>
         
     </div>

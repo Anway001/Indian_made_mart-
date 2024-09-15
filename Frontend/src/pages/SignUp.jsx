@@ -8,8 +8,9 @@ const SignUp = () => {
     <>
    
     <div className='container'>
-      <h1>Sign Up</h1>
-      <form>
+      
+      <form className='form-container'>
+      <h1 className='heading'>Sign Up</h1>
         <label htmlFor='name'>Name</label>
         
         <input type = "text" name = 'name ' placeholder='Enter Your Name'></input>
@@ -25,7 +26,7 @@ const SignUp = () => {
         <span>already a user 
           <Link to = '/login'>Login</Link>
            </span>
-        <button>SignUp</button>
+        <button className='signup'>SignUp</button>
 
         </form>
       

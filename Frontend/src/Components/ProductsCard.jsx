@@ -6,7 +6,7 @@ import Image from '../Images/1.jpg'
 function ProductCard({ name, description, price, image }) {
   return (
     
-    <>
+    <><div className='productContainer'>
        <div className="productCard">
             <img
               src="https://4.imimg.com/data4/II/AJ/MY-7980527/peacock-brass-handicraft-500x500.jpg"
@@ -37,7 +37,8 @@ function ProductCard({ name, description, price, image }) {
             <p>₹950</p>
             <button className='buyButton'>BUY</button>
           </div>
-        
+          
+          </div>
     </>
   );
 }

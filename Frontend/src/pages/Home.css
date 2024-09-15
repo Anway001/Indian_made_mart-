@@ -1,6 +1,6 @@
 /* Hero Section Styles */
 .heroSection {
-    background-image: url('https://designerapp.officeapps.live.com/designerapp/document.ashx?path=/6333a2bd-bf74-4ec0-a907-a32775b02f10/DallEGeneratedImages/dalle-3e27985f-f5fb-400c-ad8a-ffde7e8e76f10251676347799649800100.jpg&dcHint=KoreaCentral&fileToken=f1b3f9dc-6c32-41bf-bd96-c0fcea9d946f');
+    background-image:url('../Images/IMM.jpeg');
     background-size: cover;
     color: white;
     text-align: center;
@@ -15,6 +15,7 @@
   .heroTitle {
     font-size: 3em;
     margin-bottom: 20px;
+    
   }
   
   .heroText {

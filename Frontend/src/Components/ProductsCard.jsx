@@ -25,7 +25,7 @@ function ProductCard({ name, description, price, image }) {
             />
             <h3>Handwoven Rug</h3>
             <p>₹2500</p>
-            <button className='buyButton'>BUY</button>
+            <button className='buyButton'>View More</button>
           </div>
           <div className="productCard">
             <img
@@ -35,7 +35,7 @@ function ProductCard({ name, description, price, image }) {
             />
             <h3>Terracotta Pottery</h3>
             <p>₹950</p>
-            <button className='buyButton'>BUY</button>
+            <button className='buyButton'>View More</button>
           </div>
           
           </div>

@@ -9,8 +9,8 @@ function Products() {
         <div className='heroproducts__div'>
             <section>
                 <h1>Products</h1>
-                <input type="search bar " placeholder='Search for products'/>
-                <button>search</button>
+                <input className= 'searchbar'type="search bar" placeholder='Search for products'/>
+                <button className='searchbtn'>search</button>
             </section>
             
         </div>

@@ -18,27 +18,28 @@
     margin-bottom: 20px;
 }
 
-.heroproducts__div input[type="search"] {
-    width: 60%;
+.searchbar{
+    height: 20px;
+    width: 200px;
     padding: 15px;
     font-size: 16px;
-    border: none;
-    border-radius: 5px;
+    border: solid 1px ;
+    border-radius: 10px;
     margin-right: 10px;
     
 }
 
-.heroproducts__div button {
+.searchbtn{
     padding: 15px 30px;
-    background-color: #e74c3c;
+    background-color: #3cc5e7;
     color: white;
     border: none;
-    font-size: 1em;
+    font-size: 22px ;
     cursor: pointer;
     margin-left: 5px;
-    border-radius: 5px;
+    border-radius: 10px;
 }
-
+/* 
 .heroproducts__div button:hover {
     background-color: #c0392b;
-}
+} */

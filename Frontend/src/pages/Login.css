@@ -1,9 +1,8 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 30px;
+  height: auto;
   }
   
   .heading {

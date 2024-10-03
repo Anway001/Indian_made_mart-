@@ -1,7 +1,6 @@
 /* Navbar Styles */
 .navbar {
   background-color: #2c3e50;
-  /* background-image: url('https://designerapp.officeapps.live.com/designerapp/document.ashx?path=/6333a2bd-bf74-4ec0-a907-a32775b02f10/DallEGeneratedImages/dalle-3e27985f-f5fb-400c-ad8a-ffde7e8e76f10251676347799649800100.jpg&dcHint=KoreaCentral&fileToken=f1b3f9dc-6c32-41bf-bd96-c0fcea9d946f'); */
   padding: 20px 0;
   color: white;
   position: sticky;
@@ -19,8 +18,9 @@
 }
 
 .logo {
-  font-size: 1.8em;
-  margin: 0;
+  color: white;
+  font-size: 1.5em;
+  text-decoration: none;;
 }
 
 .navList {
@@ -33,7 +33,16 @@
 .navItem {
   margin: 0 15px;
 }
+.user{
+  color: white;
+  font-size: 1.5em;
 
+}
+
+.cart{
+  color: white;
+  font-size: 1.4em;
+}
 .navLink {
   color: white;
   text-decoration: none;
@@ -43,4 +52,42 @@
 
 .navLink:hover {
   text-decoration: underline;
+}
+
+/* Profile Icon */
+.navProfileIcon {
+  color: white;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Dropdown Menu */
+.navProfileIcon {
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: 50px; /* Adjust depending on your layout */
+  right: 20px; /* Align it to the right */
+  background-color: #2c3e50;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1001;
+}
+
+.logoutButton {
+  background-color: #e74c3c;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+.logoutButton:hover {
+  background-color: #c0392b;
 }

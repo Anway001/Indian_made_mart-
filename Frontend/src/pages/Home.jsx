@@ -1,11 +1,14 @@
 import React from 'react';
+import Navbar from '../Components/Navbar';
+import { Link,useNavigate } from 'react-router-dom';
 import './Home.css'; // Importing the Home CSS
 
 
 const Home = () => {
+  const navigate = useNavigate();
   return (
     <div>
-     
+     <Navbar />
 
       <section className="heroSection">
         <div className="heroContent">
@@ -14,8 +17,12 @@ const Home = () => {
             Explore high-quality, locally made products from artisans across India. 
             Support small businesses, discover unique finds, and shop proudly Indian-made!
           </p>
-          <button className="heroButton">Shop Now</button>
+          {/* background image */}
+
+
+          <button className="heroButton" onClick={() => navigate('/products')}>Shop Now</button>
         </div>
+        
       </section>
 
       <section className="featuredProductsSection">

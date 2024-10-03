@@ -1,12 +1,11 @@
 /* Hero Section Styles */
 .heroproducts {
-    /* background-image: url('https://designerapp.officeapps.live.com/designerapp/document.ashx?path=/6333a2bd-bf74-4ec0-a907-a32775b02f10/DallEGeneratedImages/dalle-3e27985f-f5fb-400c-ad8a-ffde7e8e76f10251676347799649800100.jpg&dcHint=KoreaCentral&fileToken=f1b3f9dc-6c32-41bf-bd96-c0fcea9d946f'); */
-    background-color:aliceblue;
+    background-image: url('../Images/prod.jpg');
     background-size: cover;
     background-position: center;
     color: white;
     text-align: center;
-    padding: 80px 20px;
+    padding: 120px 30px;
     position: relative;
 }
 
@@ -18,7 +17,7 @@
     margin-bottom: 20px;
 }
 
-.searchbar{
+.searchbar1{
     height: 20px;
     width: 200px;
     padding: 15px;
@@ -39,7 +38,12 @@
     margin-left: 5px;
     border-radius: 10px;
 }
-/* 
-.heroproducts__div button:hover {
-    background-color: #c0392b;
-} */
+
+.CatImg{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    
+}
+

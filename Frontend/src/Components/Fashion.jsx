@@ -1,7 +1,7 @@
 import React from 'react'
 import './Fashion.css'
 import Navbar from './Navbar'
-
+import 
 
 function Fashion() {
   return (

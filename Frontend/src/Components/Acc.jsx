@@ -1,15 +1,13 @@
 import React from 'react'
-import './Fashion.css'
+import './Acc.css'
 import Navbar from './Navbar'
 
-
-function Fashion() {
+function Acc() {
   return (
     <>
     <Navbar/>
-    
     <div className="container">
-        <h2 className="category-title">Fashion Category</h2>
+        <h2 className="category-title">Accessories Category</h2>
 
         
         <div className="product-grid">
@@ -62,9 +60,8 @@ function Fashion() {
             </div>
         </div>
     </div>
-    
     </>
   )
 }
 
-export default Fashion
+export default Acc

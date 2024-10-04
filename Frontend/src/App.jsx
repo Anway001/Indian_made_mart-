@@ -10,6 +10,9 @@ import About from './pages/About'
 import Navbar from './Components/Navbar'
 import Products from './pages/Products'
 import Fashion from './Components/Fashion'
+import Food from './Components/Food'
+import Acc from './Components/Acc'
+import Decor from './Components/Decor'
 function App() {
  
 
@@ -25,7 +28,10 @@ function App() {
         <Route path = '/contact' element = {<Contact/>}/>
         <Route path = '/about' element = {<About/>}/>
         <Route path = '/products' element = {<Products/>}/>
-        <Route path = '/Fashion' element = {<Fashion/>}/>
+        <Route path = '/fashion' element = {<Fashion/>}/>
+        <Route path = '/food' element = {<Food/>}/>
+        <Route path = '/Accessories' element = {<Acc/>}/>
+        <Route path = '/Homedecor' element = {<Decor/>}/>
         
         
 

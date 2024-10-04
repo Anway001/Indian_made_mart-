@@ -1,18 +1,17 @@
 import React from 'react'
-import './Fashion.css'
+import './Food.css'
 import Navbar from './Navbar'
 
-
-function Fashion() {
+function Food() {
   return (
     <>
     <Navbar/>
-    
+    <div className="wrapperr">
     <div className="container">
-        <h2 className="category-title">Fashion Category</h2>
+        <h2 classNameName="category-title">Food Category</h2>
 
         
-        <div className="product-grid">
+        <div classNameName="product-grid">
             <div className="product-card">
                 <img src="https://via.placeholder.com/600x800" alt="Product 1"/>
                 <h3>Stylish Dress</h3>
@@ -62,9 +61,11 @@ function Fashion() {
             </div>
         </div>
     </div>
+    </div>
+
     
-    </>
-  )
+    </>    
+)
 }
 
-export default Fashion
+export default Food

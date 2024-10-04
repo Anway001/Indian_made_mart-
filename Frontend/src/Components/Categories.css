@@ -19,7 +19,7 @@
 .categories h2 {
   font-size: 28px;
   margin-bottom: 20px;
-  color: black;
+  color: #202f5f;
 }
 
 .category-grid {
@@ -29,7 +29,7 @@
 }
 
 .category-card {
-  background-color: #780783;
+  background-color: #394985;
   border-radius: 50px;
   overflow: hidden;
   width: 250px;

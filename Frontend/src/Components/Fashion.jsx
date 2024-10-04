@@ -1,11 +1,13 @@
 import React from 'react'
 import './Fashion.css'
 import Navbar from './Navbar'
+import { Link } from 'react-router-dom'
 
 function Fashion() {
   return (
     <>
     <Navbar/>
+    
     <div className="container">
         <h2 className="category-title">Fashion Category</h2>
 

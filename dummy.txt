@@ -4,3 +4,8 @@ anway123
 
 mongodb+srv://anway001:anway123
 @cluster0.9bzgz4c.mongodb.net/?retryWrites=true&w=majority&Indian_MM=Cluster0
+
+
+
+
+mongodb://localhost:27017/Indian_MM ||

@@ -1,12 +1,12 @@
 const express = require("express");
 const router = express.Router();
-const {verifyToken} = require("../Middlewares/VerifyToken");
+const {VerifyToken} = require("../Middlewares/VerifyToken");
 const User = require("../Modules/user");
 
 
 
 ///routes to fetch user profile///
-router.get('/profile',verifyToken,async(req,res)=>{
+router.get('/profile', VerifyToken ,async(req,res)=>{
     try{
         const user = await User.findById(req.user.id).select("-password");////omits password from the user
         if (!user){

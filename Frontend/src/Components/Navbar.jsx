@@ -11,7 +11,8 @@ import { FaShoppingCart } from "react-icons/fa";
 const Navbar = () => {
 
   // State to track if the user is logged in
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);      
+  const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
   // Check login status on component mount
   useEffect(() => {
@@ -21,12 +22,34 @@ const Navbar = () => {
     }
   }, []);
 
-  // Logout function
+
+
+  const toggleDropdown = () => {
+      setIsOpen(!isOpen);
+  }
+
+  const handleOptionClick = (option) => {
+    if (option === 'Logout') {
+        handleLogout();
+    } 
+    else if (option === 'Profile') {
+        navigate('/profile');
+    }
+    else {
+        console.log(`${option} clicked`);
+        setIsOpen(false);
+    }
+}
+
+
+  //      // Logout function
   const handleLogout = () => {
     localStorage.removeItem('token'); // Remove token from localStorage
     setIsLoggedIn(false); // Update state
     navigate('/signup'); 
   };
+
+ 
 
   return (
     <nav className="navbar">
@@ -40,22 +63,28 @@ const Navbar = () => {
           {isLoggedIn ? (
             <>
               <li className="navItem">
-                <a href="/profile" className="user">
-                  {/* <FontAwesomeIcon icon={faUser} /> profile */}
+            <h1 className='user' onClick={toggleDropdown}>
+                
                   <FaRegUserCircle />
-                </a>
+                  {isOpen && (
+                <div className="dropdown-menu">
+                    <button onClick={() => handleOptionClick('Profile')}>Profile</button>
+                    <button onClick={() => handleOptionClick('Settings')}>Settings</button>
+                    <button onClick={handleLogout}>Logout</button>
+                </div>
+            )}
+            </h1>
+             
               </li>
+            
+                  
               <li className="navItem">
-                <button onClick={handleLogout} className="navLink" style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
-                  Logout
-                </button>
-              </li>
-              <li className="navItem">
-                <a href="/cart" className="cart">
+                <h1  className="cart" >
                  
                   <FaShoppingCart />
-                </a>
+             </h1>
               </li>
+              
             </>
           ) : (
             <li className="navItem"><a href="/signup" className="navLink">Login</a></li>

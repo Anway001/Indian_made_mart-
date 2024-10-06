@@ -63,26 +63,7 @@ const SignUp = () => {
     }
   };
 
-  // Handle login submit
-  // const handleLoginSubmit = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     const response = await axios.post('http://localhost:5000/api/login', {
-  //       email,
-  //       password,
-  //     });
 
-  //     if (response.data.success) {
-        
-  //       localStorage.setItem('token', response.data.token);
-  //       // localStorage.setItem('LoggedInUser', name);        
-  //       toast.success("Login successful!", { position: "top-right", autoClose: 3000 });
-  //       navigate('/home'); // Redirect to home page after successful login
-  //     }
-  //   } catch (error) {
-  //     toast.error('Login failed. Please check your credentials.', { position: "top-right", autoClose: 3000 });
-  //   }
-  // };
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -92,8 +73,14 @@ const SignUp = () => {
       });
   
       if (res.status === 200) {
+        console.log(res.data);
         const token = res.data.token; // Assuming the token is in res.data.token
+        const email = res.data.email; // Assuming the email is in res.data.email
+        console.log(email);
+        const user = JSON.stringify(res.data); // Assuming the name is in res.data.name
+        console.log(name);
         localStorage.setItem('token', token); // Store the token in localStorage
+        localStorage.setItem('user', user); // Store the user object in localStorage
         toast.success("Login successful!", { position: "top-right", autoClose: 3000 });
         navigate('/'); // Redirect to products page
       }

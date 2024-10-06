@@ -13,6 +13,7 @@ import Fashion from './Components/Fashion'
 import Food from './Components/Food'
 import Acc from './Components/Acc'
 import Decor from './Components/Decor'
+import Profile from './Components/Profile'
 function App() {
  
 
@@ -28,10 +29,12 @@ function App() {
         <Route path = '/contact' element = {<Contact/>}/>
         <Route path = '/about' element = {<About/>}/>
         <Route path = '/products' element = {<Products/>}/>
+        <Route path = '/profile' element = {<Profile/>}/>
         <Route path = '/fashion' element = {<Fashion/>}/>
         <Route path = '/food' element = {<Food/>}/>
         <Route path = '/Accessories' element = {<Acc/>}/>
         <Route path = '/Homedecor' element = {<Decor/>}/>
+        
         
         
 

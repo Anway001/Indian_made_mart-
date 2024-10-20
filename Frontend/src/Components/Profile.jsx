@@ -6,9 +6,7 @@ import { FaRegUserCircle } from "react-icons/fa";
 function Profile() {
     
     const users = JSON.parse(localStorage.getItem('user')) || {};
-    const email = users.email;
-    console.log(email);
-    const {name, phone, address} = users;
+    const {name, email,phone, address} = users;
     console.log(users)
     
   return (
@@ -25,6 +23,9 @@ function Profile() {
                     <strong>Email: </strong> {users.email || 'nahi aaunga'}
                 </div>
                 Update profile 
+                <div className="profile-update">
+                    
+                </div>
                 
             </div>
         </div>

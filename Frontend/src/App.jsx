@@ -14,6 +14,10 @@ import Food from './Components/Food'
 import Acc from './Components/Acc'
 import Decor from './Components/Decor'
 import Profile from './Components/Profile'
+import ProductPage from './Components/ProductPage'
+import Admin from './pages/Admin'
+import TestingContainer from './Components/TestingContainer'
+import AdminProductPage from './pages/AdminProductPage'
 function App() {
  
 
@@ -34,6 +38,10 @@ function App() {
         <Route path = '/food' element = {<Food/>}/>
         <Route path = '/Accessories' element = {<Acc/>}/>
         <Route path = '/Homedecor' element = {<Decor/>}/>
+        <Route path = '/productpage' element = {<ProductPage/>}/>
+        <Route path = '/admin' element = {<Admin/>}/>
+        <Route path = '/testing' element = {<TestingContainer/>}/>
+        <Route path = '/adminproduct' element = {<AdminProductPage/>}/>
         
         
         

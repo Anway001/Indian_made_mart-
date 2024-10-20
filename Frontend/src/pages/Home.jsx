@@ -1,11 +1,32 @@
-import React from 'react';
+import React,{useEffect,useState} from 'react';
 import Navbar from '../Components/Navbar';
 import { Link,useNavigate } from 'react-router-dom';
 import './Home.css'; // Importing the Home CSS
+import axios from 'axios';
+import ProductCard from '../Components/ProductsCard';
+import '../Components/ProductsCard.css'
+
 
 
 const Home = () => {
   const navigate = useNavigate();
+
+
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+      const fetchProducts = async () => {
+          try {
+              const response = await axios.get('http://localhost:8080/product'); // Update the API endpoint
+              setProducts(response.data);
+          } catch (error) {
+              console.error('Error fetching products:', error);
+          }
+      };
+
+      fetchProducts();
+  }, []);
+
   return (
     <div>
      <Navbar />
@@ -58,7 +79,19 @@ const Home = () => {
             <p>₹950</p>
             <button className='buyButton'>BUY</button>
           </div>
+
+          {/* <div>
+
+          {products.map((product) => (
+        <ProductCard key={product._id} product={product} />
+         ))}
+          </div> */}
+
+
         </div>
+
+
+
       </section>
 
       <section className="aboutSection">

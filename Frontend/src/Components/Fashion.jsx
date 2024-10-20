@@ -1,25 +1,37 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
+import { Navigate, useNavigate,Link } from 'react-router-dom'
 import './Fashion.css'
 import Navbar from './Navbar'
 
 
+
+
 function Fashion() {
+   const Navigate = useNavigate()
+
+   
+
+
   return (
     <>
     <Navbar/>
+
     
     <div className="container">
         <h2 className="category-title">Fashion Category</h2>
 
         
-        <div className="product-grid">
+        <div className="product-grid" >
             <div className="product-card">
+                
                 <img src="https://i.pinimg.com/564x/44/fb/2b/44fb2bd3aa8fc052a3b9f46ffddbc7b7.jpg" alt="Product 1"/>
                 <h3>Floral patchwork jacket</h3>
                 <p>Floral jacket with plaid accents and ruffled collar.</p>
                 <p className="price">Rs 790</p>
                 <button className="add-to-cart-btn" onclick="addToCart('Stylish Dress')">Add to Cart</button>
+               
             </div>
+          
 
             <div className="product-card">
                 <img src="https://i.pinimg.com/564x/6d/2c/ab/6d2cabced26398f963f3b697054abb18.jpg" alt="Product 2"/>
@@ -53,6 +65,13 @@ function Fashion() {
                 <button className="add-to-cart-btn" onclick="addToCart('Formal Shoes')">Add to Cart</button>
             </div>
 
+            <div className="product-card">
+                <img src="https://i.pinimg.com/564x/8d/0d/50/8d0d50278f4742efc194806816387097.jpg" alt="Product 6"/>
+                <h3>Jacket</h3>
+                <p>An outer garment typically worn for warmth, protection, or style.</p>
+                <p className="price">Rs 500</p>
+                <button className="add-to-cart-btn" onclick="addToCart('Summer Hat')">Add to Cart</button>
+            </div>
             <div className="product-card">
                 <img src="https://i.pinimg.com/564x/8d/0d/50/8d0d50278f4742efc194806816387097.jpg" alt="Product 6"/>
                 <h3>Jacket</h3>

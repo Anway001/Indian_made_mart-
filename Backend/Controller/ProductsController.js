@@ -24,7 +24,7 @@ const addProduct = async (req, res) => {
 const getProducts = async (req, res) => {
     try{
         // fetch all products from database 
-        const products = await Product.find();
+        const products = await Products.find();
         return res.status(200).json(products);
 
 
@@ -34,7 +34,32 @@ const getProducts = async (req, res) => {
     }
 }
 
+const deleteProduct = async (req, res) => {
+    try{
+        const {id} = req.params;
+        const deletedProduct = await Products.findByIdAndDelete(id);
+        return res.status(200).json(deletedProduct);
+
+    }catch (err) {
+        console.log(err);
+        return res.status(500).json({message:"sever Error : could not delete product"});
+    }
+}
+
+const updateProduct = async (req, res) => {
+    try{
+        const {id} = req.params;
+        const updatedProduct = await Products.findByIdAndUpdate(id, req.body, {new:true});
+        return res.status(200).json(updatedProduct);
+    }catch (err) {
+        console.log(err);
+        return res.status(500).json({message:"sever Error : could not update product"});
+    }
+}
+
 module.exports = {
     addProduct,
-    getProducts
+    getProducts,
+    deleteProduct,
+    updateProduct
 }

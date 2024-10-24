@@ -9,6 +9,9 @@ const AuthRouter=require('./Routers/AuthRouter')
 const ProductRouter = require('./Routers/ProductRouter')
 const UserRouter = require('./Routers/UserRouter')
 const ProfileRouter = require('./Routers/ProfileRouter')
+const CartRouter = require('./Routers/CartRouter')
+const Fashion = require('./Routers/FashionRouter')
+const path = require('path');
 
 app.get('/',(req,res)=>{
     res.send('hello backend ')
@@ -18,8 +21,12 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use('/auth',AuthRouter)
 app.use('/product',ProductRouter)
+app.use('/fashion',Fashion)
 app.use('/user',UserRouter)
 app.use('/profile',ProfileRouter)
+app.use('/cart',CartRouter)
+console.log(path.join(__dirname, 'ImagesBackend')); 
+app.use('/ImagesBackend', express.static(path.join(__dirname, 'ImagesBackend')));
 
 app.listen(process.env.PORT,()=>{
     console.log(`server is running on ${process.env.PORT}`)

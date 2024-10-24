@@ -18,6 +18,8 @@ import ProductPage from './Components/ProductPage'
 import Admin from './pages/Admin'
 import TestingContainer from './Components/TestingContainer'
 import AdminProductPage from './pages/AdminProductPage'
+import AdminCustomers from './Components/AdminCustomer'
+import Cart from './Components/Cart'
 function App() {
  
 
@@ -42,6 +44,9 @@ function App() {
         <Route path = '/admin' element = {<Admin/>}/>
         <Route path = '/testing' element = {<TestingContainer/>}/>
         <Route path = '/adminproduct' element = {<AdminProductPage/>}/>
+        <Route path = '/admincustomer' element = {<AdminCustomers/>}/>
+        <Route path = '/cart' element = {<Cart/>}/>
+
         
         
         

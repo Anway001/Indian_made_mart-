@@ -79,10 +79,10 @@ const Navbar = () => {
             
                   
               <li className="navItem">
-                <h1  className="cart" >
+                <Link to ='/cart'  className="cart" >
                  
                   <FaShoppingCart />
-             </h1>
+             </Link>
               </li>
               
             </>

@@ -25,7 +25,7 @@ function Admin() {
                         <span className="icon">📦</span>
                         <h3>Products</h3>
                     </a>
-                    <a href="#">
+                    <a href="/admincustomer">
                         <span className="icon">👥</span>
                         <h3>Customers</h3>
                     </a>

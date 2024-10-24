@@ -1,7 +1,8 @@
 const express = require("express");
 const bycrypt = require("bcrypt");
 const User = require('../Modules/user')
-const {VerifyToken} = require('../Middlewares/VerifyToken')
+const {VerifyToken} = require('../Middlewares/VerifyToken');
+const { getallUser, addUser } = require("../Controller/UserController");
 const router = express.Router();
 
 
@@ -36,4 +37,8 @@ router.put ('/profile',VerifyToken,async(req,res)=>{
         
     }
 })
+
+router.get('/',getallUser)
+router.post('/',addUser)
+
 module.exports= router;

@@ -2,13 +2,15 @@ const Products = require ('../Modules/product')
 
 const addProduct = async (req, res) => {
     try{
-        const {prod_name , prod_price, prod_desc,prod_stock, prod_image,prod_category} = req.body;
+        const {prod_name , prod_price, prod_desc,prod_stock,prod_category} = req.body;
+        const prod_img = req.file ? `/ImagesBackend/${req.file.filename}` : null;  // Save the image path
+
         const Product1 = new Products({
             prod_name,
             prod_price,
             prod_desc,
             prod_stock,
-            prod_image,
+            prod_img,
             prod_category
         });
        

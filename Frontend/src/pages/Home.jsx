@@ -5,6 +5,7 @@ import './Home.css'; // Importing the Home CSS
 import axios from 'axios';
 import ProductCard from '../Components/ProductsCard';
 import '../Components/ProductsCard.css'
+import Footer from '../Components/Footer';
 
 
 
@@ -103,9 +104,7 @@ const Home = () => {
         </p>
       </section>
 
-      <footer className="footer">
-        <p>© 2024 IndianMadeMart. Supporting Indian craftsmanship, one purchase at a time.</p>
-      </footer>
+      <Footer/>
     </div>
   );
 };

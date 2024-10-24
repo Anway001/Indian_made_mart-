@@ -1,90 +1,131 @@
-import React ,{useEffect,useState}from 'react'
-import axios from 'axios'
-import './AdminProduct.css'
-
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import './AdminProduct.css';
 
 function AdminProduct() {
-    const [products,setProduct]=useState([]);
-    const [newproduct,setnewproduct]=useState({
-        prod_name:"",
-        prod_price:"",
-        prod_desc:"",
-        prod_stock:"",
-        prod_category:"",
-        prod_img:""
+    const [products, setProduct] = useState([]);
+    const [newProduct, setNewProduct] = useState({
+        prod_name: '',
+        prod_price: '',
+        prod_desc: '',
+        prod_stock: '',
+        prod_img: '',
+        prod_category: '',
+       
     });
+    const [imageFile, setImageFile] = useState(null); // State to store selected image file
+    const [editProduct, setEditProduct] = useState(null);
 
-    const [editproduct,seteditproduct]=useState(null);
+    useEffect(() => {
+        fetchProducts();
+    }, []);
 
-    useEffect(()=>{
-        fetchproducts();
-    },[]);
-
-    const fetchproducts=async()=>{
+    const fetchProducts = async () => {
         try {
-            const response = await fetch("http://localhost:8080/product");
-        }catch(err){
+            const response = await axios.post('http://localhost:8080/product', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data', // Ensure correct content type
+                }
+            })
+            const data = await response.json();
+            setProduct(data);
+        } catch (err) {
             console.log(err);
         }
-    }
+    };
+
     const handleAddProduct = async () => {
         try {
-            const response = await fetch('http://localhost:8080/product', {
-                method: 'POST',
+            const formData = new FormData();
+            formData.append('prod_name', newProduct.prod_name);
+            formData.append('prod_price', newProduct.prod_price);
+            formData.append('prod_desc', newProduct.prod_desc);
+            formData.append('prod_stock', newProduct.prod_stock);
+            if (imageFile) {
+                formData.append('prod_img', imageFile); // Append the selected image file
+            }
+            formData.append('prod_category', newProduct.prod_category);
+            
+
+            const response = await axios.post('http://localhost:8080/product', formData, {
                 headers: {
-                    'Content-Type': 'application/json',
+                    'Content-Type': 'multipart/form-data',
                 },
-                body: JSON.stringify(newproduct),
             });
-            await response.json();
-            fetchproducts(); // Refresh products list
-            setnewproduct({ prod_name: '', prod_price: '', prod_desc: '', prod_stock: '', prod_category: '', prod_img: '' }); // Clear input fields
+
+            if (response.status === 200) {
+                console.log('Product added successfully:', response.data);
+                fetchProducts(); // Refresh products list
+                setNewProduct({ prod_name: '', prod_price: '', prod_desc: '', prod_stock: '', prod_category: '' });
+                setImageFile(null); // Clear the image file input
+            } else {
+                console.error('Failed to add product:', response.statusText);
+            }
         } catch (error) {
-            console.error("Error adding product", error);
+            console.error('Error adding product', error);
         }
     };
 
-    const handleUpdateProduct = async (id) => {
-        try {
-            await axios.put(`/product/${id}`, newproduct);
-            fetchproducts(); // Refresh products list
-            seteditproduct(null); // Reset editing state
-        } catch (error) {
-            console.error("Error updating product", error);
-        }
-    };
-
-    const handleDeleteProduct = async (id) => {
-        try {
-            await axios.delete(`/product/${id}`);
-            fetchproducts(); // Refresh products list
-        } catch (error) {
-            console.error("Error deleting product", error);
-        }
+    const handleFileChange = (e) => {
+        setImageFile(e.target.files[0]); // Set the selected file in the state
     };
 
     const handleInputChange = (e) => {
-        setnewproduct({
-            ...newproduct,
-            [e.target.name]: e.target.value
+        setNewProduct({
+            ...newProduct,
+            [e.target.name]: e.target.value,
         });
     };
 
-  return (
-    <div className="admin-products">
+    return (
+        <div className="admin-products">
             <h2>Manage Products</h2>
 
             {/* Form for adding or editing products */}
             <div className="product-form">
-                <input type="text" name="prod_name" value={newproduct.prod_name} onChange={handleInputChange} placeholder="Product Name" />
-                <input type="number" name="prod_price" value={newproduct.prod_price} onChange={handleInputChange} placeholder="Price" />
-                <input type="text" name="prod_desc" value={newproduct.prod_desc} onChange={handleInputChange} placeholder="Description" />
-                <input type="number" name="prod_stock" value={newproduct.prod_stock} onChange={handleInputChange} placeholder="Stock" />
-                <input type="text" name="prod_category" value={newproduct.prod_category} onChange={handleInputChange} placeholder="Category" />
-                <input type="text" name="prod_img" value={newproduct.prod_img} onChange={handleInputChange} placeholder="Image URL" />
+                <input
+                    type="text"
+                    name="prod_name"
+                    value={newProduct.prod_name}
+                    onChange={handleInputChange}
+                    placeholder="Product Name"
+                />
+                <input
+                    type="number"
+                    name="prod_price"
+                    value={newProduct.prod_price}
+                    onChange={handleInputChange}
+                    placeholder="Price"
+                />
+                <input
+                    type="text"
+                    name="prod_desc"
+                    value={newProduct.prod_desc}
+                    onChange={handleInputChange}
+                    placeholder="Description"
+                />
+                <input
+                    type="number"
+                    name="prod_stock"
+                    value={newProduct.prod_stock}
+                    onChange={handleInputChange}
+                    placeholder="Stock"
+                />
+                <input
+                    type="text"
+                    name="prod_category"
+                    value={newProduct.prod_category}
+                    onChange={handleInputChange}
+                    placeholder="Category"
+                />
+                <input
+                    type="file"
+                    onChange={handleFileChange}
+                    accept="image/*"
+                /> {/* File input for image */}
                 
-                {editproduct ? (
-                    <button onClick={() => handleUpdateProduct(editproduct)}>Update Product</button>
+                {editProduct ? (
+                    <button onClick={() => handleUpdateProduct(editProduct)}>Update Product</button>
                 ) : (
                     <button onClick={handleAddProduct}>Add Product</button>
                 )}
@@ -104,18 +145,22 @@ function AdminProduct() {
                         </tr>
                     </thead>
                     <tbody>
-                        {products.map(product => (
-                            <tr key={product._id}>
-                                <td>{product.prod_name}</td>
-                                <td>{product.prod_price}</td>``
-                                <td>{product.prod_stock}</td>
-                                <td>{product.prod_category}</td>
+                        {products.map((product1) => (
+                            <tr key={product1._id}>
+                                <td>{product1.prod_name}</td>
+                                <td>{product1.prod_price}</td>
+                                <td>{product1.prod_stock}</td>
+                                <td>{product1.prod_category}</td>
                                 <td>
-                                    <button onClick={() => {
-                                        seteditproduct(product._id);
-                                        setnewproduct(product);
-                                    }}>Edit</button>
-                                    <button onClick={() => handleDeleteProduct(product._id)}>Delete</button>
+                                    <button
+                                        onClick={() => {
+                                            setEditProduct(product1._id);
+                                            setNewProduct(product1);
+                                        }}
+                                    >
+                                        Edit
+                                    </button>
+                                    <button onClick={() => handleDeleteProduct(product1._id)}>Delete</button>
                                 </td>
                             </tr>
                         ))}
@@ -123,7 +168,7 @@ function AdminProduct() {
                 </table>
             </div>
         </div>
-  )
+    );
 }
 
-export default AdminProduct
+export default AdminProduct;

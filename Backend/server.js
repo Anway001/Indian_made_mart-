@@ -13,35 +13,43 @@ const CartRouter = require('./Routers/CartRouter')
 const Fashion = require('./Routers/FashionRouter')
 const path = require('path');
 
-const allowedOrigins = [
-  "https://indian-made-mart-adt2.vercel.app",
-  "http://localhost:5173" // optional for local dev
-];
 
 
 app.get('/',(req,res)=>{
     res.send('hello backend ')
 })
+const allowedOrigins = [
+  "https://indian-made-mart-adt2.vercel.app", // your Vercel frontend
+  "http://localhost:5173" // local dev
+];
 
-app.use(bodyParser.json());
 app.use(cors({
-  origin: function(origin, callback){
-    // allow requests with no origin (like Postman)
-    if(!origin) return callback(null, true);
-    if(allowedOrigins.indexOf(origin) === -1){
-      const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
-      return callback(new Error(msg), false);
+  origin: function (origin, callback) {
+    if (!origin) return callback(null, true); // allow Postman, curl, server-to-server
+    if (allowedOrigins.indexOf(origin) === -1) {
+      return callback(new Error("CORS not allowed"), false);
     }
     return callback(null, true);
   },
-  methods: ["GET","POST","PUT","DELETE","OPTIONS"],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   credentials: true
 }));
-app.options('*', cors({
+
+// Handle preflight OPTIONS request globally
+app.options("*", cors({
   origin: allowedOrigins,
-  methods: ["GET","POST","PUT","DELETE","OPTIONS"],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   credentials: true
 }));
+
+
+
+
+
+
+
+app.use(bodyParser.json());
+
 app.use('/auth',AuthRouter)
 app.use('/product',ProductRouter)
 app.use('/fashion',Fashion)

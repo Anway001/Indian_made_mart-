@@ -21,7 +21,7 @@ function AdminProduct() {
 
     const fetchProducts = async () => {
         try {
-            const response = await axios.get('http://localhost:8080/product'); // Changed to GET request
+            const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}product`); // Changed to GET request
             setProduct(response.data); // Directly accessing response data
         } catch (err) {
             console.log(err);
@@ -40,7 +40,7 @@ function AdminProduct() {
             }
             formData.append('prod_category', newProduct.prod_category);
 
-            const response = await axios.post('http://localhost:8080/product', formData, {
+            const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}product`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
@@ -72,7 +72,7 @@ function AdminProduct() {
 
     const handleDeleteProduct = async (id) => {
         try {
-            const response = await axios.delete(`http://localhost:8080/product/${id}`); // Make sure you have this endpoint set up
+            const response = await axios.delete(`${import.meta.env.VITE_API_BASE_URL}product/${id}`); // Make sure you have this endpoint set up
             if (response.status === 200) {
                 console.log('Product deleted successfully');
                 fetchProducts(); // Refresh products list

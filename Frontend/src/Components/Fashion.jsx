@@ -144,9 +144,9 @@ function Fashion() {
 
   useEffect(() => {
     // Fetch fashion products from the backend
-    fetch('http://localhost:8080/product') // Adjust the API endpoint to match your backend route
+    fetch(`${import.meta.env.VITE_API_BASE_URL}product`) // Adjust the API endpoint to match your backend route
       .then(response => response.json())
-      .then(data => setProducts(data))  
+      .then(data => setProducts(data))
       .catch(error => console.error('Error fetching products:', error));
   }, []);
 
@@ -240,7 +240,7 @@ function Fashion() {
         <div className="product-grid">
           {products.map((product) => (
             <div key={product._id} className="product-card">
-             <img src={`http://localhost:8080${product.prod_img}`} alt={product.prod_name} />
+             <img src={`${import.meta.env.VITE_API_BASE_URL}${product.prod_img}`} alt={product.prod_name} />
               <h3>{product.prod_name}</h3>
               <p>{product.prod_desc}</p>
               <p className="price">₹ {product.prod_price}</p>

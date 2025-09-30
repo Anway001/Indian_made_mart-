@@ -43,7 +43,7 @@ const SignUp = () => {
   const handleSignUPSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:8080/auth/signup', {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}auth/signup`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -67,7 +67,7 @@ const SignUp = () => {
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:8080/auth/login', {
+      const res = await axios.post(`${import.meta.env.VITE_API_BASE_URL}auth/login`, {
         email: loginInfo.email,
         password: loginInfo.password,
       });

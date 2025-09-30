@@ -15,7 +15,7 @@ const AdminCustomers = () => {
     // Fetch customers
     const fetchCustomers = async () => {
         try {
-            const response = await axios.get('http://localhost:8080/user');
+            const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}user`);
             setCustomers(response.data);
         } catch (error) {
             console.error('Error fetching customers', error);
@@ -37,11 +37,11 @@ const AdminCustomers = () => {
         try {
             if (editingCustomer) {
                 // Update existing customer
-                await axios.put(`http://localhost:8080/user/profile/${editingCustomer._id}`, formData);
+                await axios.put(`${import.meta.env.VITE_API_BASE_URL}user/profile/${editingCustomer._id}`, formData);
                 alert('Customer updated successfully!');
             } else {
                 // Add new customer
-                await axios.post('http://localhost:8080/user', formData);
+                await axios.post(`${import.meta.env.VITE_API_BASE_URL}user`, formData);
                 alert('Customer added successfully!');
             }
 
@@ -67,7 +67,7 @@ const AdminCustomers = () => {
     // Delete customer
     const handleDelete = async (customerId) => {
         try {
-            await axios.delete(`http://localhost:8080/user/${customerId}`);
+            await axios.delete(`${import.meta.env.VITE_API_BASE_URL}user/${customerId}`);
             alert('Customer deleted successfully!');
             fetchCustomers(); // Fetch the updated list after deletion
         } catch (error) {

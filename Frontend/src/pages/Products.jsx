@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Products.css';
+import './products.css';
 import ProductsCard from '../Components/ProductsCard';
 import Categories from '../Components/Categories';
 import Navbar from '../Components/Navbar';
@@ -7,6 +7,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Footer from '../Components/Footer';
 
+
+// 
 const productlist = [
   {
     id: 1,

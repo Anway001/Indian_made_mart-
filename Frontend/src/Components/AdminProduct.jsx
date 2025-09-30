@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import './AdminProduct.css';
+import './Adminproduct.css';
+
+// 
 
 function AdminProduct() {
     const [products, setProduct] = useState([]);

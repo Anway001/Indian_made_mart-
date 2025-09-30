@@ -13,17 +13,34 @@ const CartRouter = require('./Routers/CartRouter')
 const Fashion = require('./Routers/FashionRouter')
 const path = require('path');
 
+const allowedOrigins = [
+  "https://indian-made-mart-adt2.vercel.app",
+  "http://localhost:5173" // optional for local dev
+];
+
+
 app.get('/',(req,res)=>{
     res.send('hello backend ')
 })
 
 app.use(bodyParser.json());
 app.use(cors({
-  origin: [
-    "https://indian-made-mart-adt2.vercel.app",   
-  ],
-  methods: ["GET","POST","PUT","DELETE","OPTIONS"], 
-  credentials: true,
+  origin: function(origin, callback){
+    // allow requests with no origin (like Postman)
+    if(!origin) return callback(null, true);
+    if(allowedOrigins.indexOf(origin) === -1){
+      const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
+      return callback(new Error(msg), false);
+    }
+    return callback(null, true);
+  },
+  methods: ["GET","POST","PUT","DELETE","OPTIONS"],
+  credentials: true
+}));
+app.options('*', cors({
+  origin: allowedOrigins,
+  methods: ["GET","POST","PUT","DELETE","OPTIONS"],
+  credentials: true
 }));
 app.use('/auth',AuthRouter)
 app.use('/product',ProductRouter)

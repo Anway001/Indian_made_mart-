@@ -11,9 +11,8 @@ function AdminProduct() {
         prod_stock: '',
         prod_img: '',
         prod_category: '',
-       
     });
-    const [imageFile, setImageFile] = useState(null); // State to store selected image file
+    const [imageFile, setImageFile] = useState(null);
     const [editProduct, setEditProduct] = useState(null);
 
     useEffect(() => {
@@ -22,13 +21,8 @@ function AdminProduct() {
 
     const fetchProducts = async () => {
         try {
-            const response = await axios.post('http://localhost:8080/product', formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data', // Ensure correct content type
-                }
-            })
-            const data = await response.json();
-            setProduct(data);
+            const response = await axios.get('http://localhost:8080/product'); // Changed to GET request
+            setProduct(response.data); // Directly accessing response data
         } catch (err) {
             console.log(err);
         }
@@ -42,10 +36,9 @@ function AdminProduct() {
             formData.append('prod_desc', newProduct.prod_desc);
             formData.append('prod_stock', newProduct.prod_stock);
             if (imageFile) {
-                formData.append('prod_img', imageFile); // Append the selected image file
+                formData.append('prod_img', imageFile);
             }
             formData.append('prod_category', newProduct.prod_category);
-            
 
             const response = await axios.post('http://localhost:8080/product', formData, {
                 headers: {
@@ -57,7 +50,7 @@ function AdminProduct() {
                 console.log('Product added successfully:', response.data);
                 fetchProducts(); // Refresh products list
                 setNewProduct({ prod_name: '', prod_price: '', prod_desc: '', prod_stock: '', prod_category: '' });
-                setImageFile(null); // Clear the image file input
+                setImageFile(null);
             } else {
                 console.error('Failed to add product:', response.statusText);
             }
@@ -67,7 +60,7 @@ function AdminProduct() {
     };
 
     const handleFileChange = (e) => {
-        setImageFile(e.target.files[0]); // Set the selected file in the state
+        setImageFile(e.target.files[0]);
     };
 
     const handleInputChange = (e) => {
@@ -77,11 +70,24 @@ function AdminProduct() {
         });
     };
 
+    const handleDeleteProduct = async (id) => {
+        try {
+            const response = await axios.delete(`http://localhost:8080/product/${id}`); // Make sure you have this endpoint set up
+            if (response.status === 200) {
+                console.log('Product deleted successfully');
+                fetchProducts(); // Refresh products list
+            } else {
+                console.error('Failed to delete product:', response.statusText);
+            }
+        } catch (error) {
+            console.error('Error deleting product', error);
+        }
+    };
+
     return (
         <div className="admin-products">
             <h2>Manage Products</h2>
 
-            {/* Form for adding or editing products */}
             <div className="product-form">
                 <input
                     type="text"
@@ -122,7 +128,7 @@ function AdminProduct() {
                     type="file"
                     onChange={handleFileChange}
                     accept="image/*"
-                /> {/* File input for image */}
+                />
                 
                 {editProduct ? (
                     <button onClick={() => handleUpdateProduct(editProduct)}>Update Product</button>
@@ -131,7 +137,6 @@ function AdminProduct() {
                 )}
             </div>
 
-            {/* Display list of products */}
             <div className="product-list">
                 <h3>Current Products</h3>
                 <table>

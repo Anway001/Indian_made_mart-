@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
+import './Contact.css';
 import Navbar from '../Components/Navbar';
+import Footer  from '../Components/Footer';
 
-const Contact = () => {
+
+
+const ContactUs = () => {
+    
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    message: ''
+    phone: '',
+    message: '',
   });
 
   const handleChange = (e) => {
@@ -15,77 +21,79 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission logic, e.g., sending data to backend
-    console.log('Form data submitted:', formData);
-    alert('Thank you for reaching out! We will get back to you soon.');
-    setFormData({ name: '', email: '', message: '' }); // Reset form
+    // Handle form submission (e.g., send data to an API)
+    alert('Message sent!');
+    setFormData({ name: '', email: '', phone: '', message: '' });
   };
 
   return (
     <>
-    <Navbar />
+    <Navbar/>
     
-    <section style={styles.section}>
-      <h2>Contact Us</h2>
-      <form onSubmit={handleSubmit} style={styles.form}>
-        <div style={styles.formGroup}>
-          <label>Name</label>
-          <input
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div style={styles.formGroup}>
-          <label>Email</label>
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div style={styles.formGroup}>
-          <label>Message</label>
-          <textarea
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <button type="submit" style={styles.button}>Submit</button>
+    <div className="contact-container">
+      <h1 className='contact-title'>Contact Us</h1>
+      <p>We’re here to help you with all your water service needs!</p>
+
+      <div className="contact-info">
+        <h2>Contact Information</h2>
+        <p><strong>Phone:</strong> (123) 456-7890</p>
+        <p><strong>Email:</strong> anwaykharsamble@gmail.com</p>
+        <p><strong>Address:</strong> Virar West , mumbai 401209</p>
+        <p><strong>Business Hours:</strong> Mon-Fri, 9 AM - 5 PM</p>
+      </div>
+
+      <form className="contact-form" onSubmit={handleSubmit}>
+        <h2>Send Us a Message</h2>
+        <input
+          type="text"
+          name="name"
+          placeholder="Your Name"
+          value={formData.name}
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="email"
+          name="email"
+          placeholder="Your Email"
+          value={formData.email}
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="tel"
+          name="phone"
+          placeholder="Your Phone (optional)"
+          value={formData.phone}
+          onChange={handleChange}
+        />
+        <textarea
+          name="message"
+          placeholder="Your Message"
+          value={formData.message}
+          onChange={handleChange}
+          required
+        ></textarea>
+        <button type="submit">Send Message</button>
       </form>
-    </section>
+
+      <div className="map-container">
+        <h2>Our Location</h2>
+        <iframe
+          title="Location Map"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509378!2d144.95373531531752!3d-37.81627997975118!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f1c9f63%3A0x50c6c5c132d4d2df!2sAqua%20Service!5e0!3m2!1sen!2sus!4v1617773438322!5m2!1sen!2sus"
+          width="600"
+          height="450"
+          style={{ border: 0 }}
+          allowFullScreen=""
+          loading="lazy"
+        ></iframe>
+      </div>
+    </div>
+    <Footer/>
+
     </>
   );
 };
 
-const styles = {
-  section: {
-    padding: '20px',
-    backgroundColor: '#f9f9f9',
-    borderRadius: '8px',
-    margin: '20px 0',
-  },
-  form: {
-    display: 'flex',
-    flexDirection: 'column',
-  },
-  formGroup: {
-    marginBottom: '10px',
-  },
-  button: {
-    padding: '10px 20px',
-    backgroundColor: '#007BFF',
-    color: '#fff',
-    border: 'none',
-    borderRadius: '5px',
-    cursor: 'pointer',
-  }
-};
-
-export default Contact;
+export default ContactUs;

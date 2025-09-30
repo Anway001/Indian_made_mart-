@@ -1,16 +1,19 @@
 .admin-container {
-    max-width: 800px;
+    max-width: 1000px;
+    max-height: 100000px;
     margin: 20px auto;
     padding: 20px;
-    border: 1px solid #ccc;
+    border: 1px solid #ddd;
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    background-color: #f9f9f9;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+    background-color: rgb(221, 221, 248);
 }
 
 h2 {
     text-align: center;
-    color: #2c3e50;
+    color: #012d5a;
+    font-size: 25px;
+    margin-bottom: 20px;
 }
 
 .customer-form {
@@ -21,25 +24,32 @@ h2 {
 }
 
 .customer-form input {
-    padding: 10px;
-    border: 1px solid #ddd;
+    padding: 12px;
+    border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.customer-form input:focus {
+    border-color: #28a745;
+    outline: none;
 }
 
 .customer-form button {
-    padding: 10px;
-    background-color: #28a745; /* Green color */
+    padding: 12px;
+    background-color: #1c1867;
     color: white;
     border: none;
     border-radius: 4px;
     font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
 .customer-form button:hover {
-    background-color: #218838; /* Darker green on hover */
+    background-color: #414e86;
+    transform: translateY(-2px);
 }
 
 .customers-list {
@@ -48,19 +58,33 @@ h2 {
 
 .customers-list table {
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: collapse; /* Ensures that borders are collapsed for a cleaner look */
 }
 
 .customers-list th, 
 .customers-list td {
-    padding: 10px;
+    border: 1px solid black; /* Sets the boundary color for each cell */
+    padding: 8px; /* Optional: Adds padding for better spacing */
+    text-align: left; /* Optional: Aligns text to the left */
+}
+
+.customers-list th {
+    background-color: #f2f2f2; /* Optional: Light gray background for table headers */
+}
+
+
+
+.customers-list th, 
+.customers-list td {
+    padding: 12px;
     text-align: left;
     border-bottom: 1px solid #ddd;
 }
 
 .customers-list th {
-    background-color: #2c3e50;
+    background-color: #2d3b5a;
     color: white;
+    font-size: 18px;
 }
 
 .customers-list tr:hover {
@@ -68,15 +92,17 @@ h2 {
 }
 
 .customers-list button {
-    padding: 5px 10px;
-    background-color: #007bff; /* Blue color */
+    padding: 6px 12px;
+    background-color: #0056b3;
     color: white;
+    margin-right: 10px;;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
 .customers-list button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+    background-color: #6e9ac8;
+    transform: translateY(-1px);
 }

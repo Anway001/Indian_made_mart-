@@ -22,7 +22,7 @@
 .product-card {
     background-color: #fff;
     border: none;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
     padding: 20px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -32,7 +32,7 @@
 
 .product-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
 }
 
 .product-card img {
@@ -67,7 +67,7 @@
 }
 
 .add-to-cart-btn {
-    background-color:#780783;
+    background-color:#1b1446;
     color: #fff;
     padding: 12px 30px;
     border: none;
@@ -79,5 +79,5 @@
 }
 
 .add-to-cart-btn:hover {
-    background-color:#4d0553;
+    background-color:#322595;
 }

@@ -57,8 +57,8 @@ const Home = () => {
               className="productImage"
             />
             <h3>Brass Handicraft</h3>
-            <p>₹1800</p>
-            <button className='buyButton'>BUY</button>
+            <p>₹500</p>
+            <button className='buyButton' onClick={()=> window.location.href = 'https://buy.stripe.com/test_cN22ambPHdNO3yo6op'}>BUY</button>
           </div>
           <div className="productCard">
             <img
@@ -68,7 +68,7 @@ const Home = () => {
             />
             <h3>Handwoven Rug</h3>
             <p>₹2500</p>
-            <button className='buyButton'>BUY</button>
+            <button className='buyButton' onClick={()=> window.location.href = 'https://buy.stripe.com/test_28obKW7zr2568SI4gg'}>BUY</button>
           </div>
           <div className="productCard">
             <img
@@ -78,7 +78,7 @@ const Home = () => {
             />
             <h3>Terracotta Pottery</h3>
             <p>₹950</p>
-            <button className='buyButton'>BUY</button>
+            <button className='buyButton' onClick={()=> window.location.href = 'https://buy.stripe.com/test_3cs5my6vnh006KA6oq'}>BUY</button>
           </div>
 
           {/* <div>

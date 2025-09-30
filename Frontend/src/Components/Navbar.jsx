@@ -69,7 +69,7 @@ const Navbar = () => {
                   {isOpen && (
                 <div className="dropdown-menu">
                     <button onClick={() => handleOptionClick('Profile')}>Profile</button>
-                    <button onClick={() => handleOptionClick('Settings')}>Settings</button>
+                    {/* <button onClick={() => handleOptionClick('Settings')}>Settings</button> */}
                     <button onClick={handleLogout}>Logout</button>
                 </div>
             )}

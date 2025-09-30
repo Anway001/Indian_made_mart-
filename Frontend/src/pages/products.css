@@ -1,4 +1,12 @@
+
+
+body{
+    background: linear-gradient(100deg, #f3f6ff, #7e91c5); 
+}
+
 /* Hero Section Styles */
+
+
 .heroproducts {
     background-image: url('../Images/prod.jpg');
     background-size: cover;
@@ -7,6 +15,7 @@
     text-align: center;
     padding: 120px 30px;
     position: relative;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); 
 }
 
 

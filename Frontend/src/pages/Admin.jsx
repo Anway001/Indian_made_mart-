@@ -29,15 +29,15 @@ function Admin() {
                         <span className="icon">👥</span>
                         <h3>Customers</h3>
                     </a>
-                    <a href="#">
+                    {/* <a href="#">
                         <span className="icon">📧</span>
                         <h3>Messages</h3>
                         <span className="message-count">26</span>
                     </a>
                     <a href="#">
-                        <span className="icon">⚙️</span>
+                        <span className="icon">⚙</span>
                         <h3>Settings</h3>
-                    </a>
+                    </a> */}
                     <a href="#">
                         <span className="icon">🔓</span>
                         <h3>Logout</h3>
@@ -59,7 +59,7 @@ function Admin() {
                         <div className="middle">
                             <div className="left">
                                 <h3>Total Sales</h3>
-                                <h1>$25,024</h1>
+                                <h1>₹25,024</h1>
                             </div>
                             <div className="progress">
                                 <svg>
@@ -75,11 +75,11 @@ function Admin() {
                         <small>Last 24 Hours</small>
                     </div>
                     <div className="expenses">
-                        <span>🛍️</span>
+                        <span>🛍</span>
                         <div className="middle">
                             <div className="left">
                                 <h3>Total Expenses</h3>
-                                <h1>$14,160</h1>
+                                <h1>₹14,160</h1>
                             </div>
                             <div className="progress">
                                 <svg>
@@ -97,7 +97,7 @@ function Admin() {
                         <div className="middle">
                             <div className="left">
                                 <h3>Total Income</h3>
-                                <h1>$10,864</h1>
+                                <h1>₹10,864</h1>
                             </div>
                             <div className="progress">
                                 <svg>
@@ -126,20 +126,20 @@ function Admin() {
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Foldable Mini Drone</td>
-                                <td>$799</td>
+                                <td>Peacock Wall Art</td>
+                                <td>₹500</td>
                                 <td>Due</td>
                                 <td>Pending</td>
                             </tr>
                             <tr>
-                                <td>Foldable Mini Drone</td>
-                                <td>$799</td>
+                                <td>Bicycle Key Holder</td>
+                                <td>₹200</td>
                                 <td>Paid</td>
                                 <td>Delivered</td>
                             </tr>
                             <tr>
-                                <td>Foldable Mini Drone</td>
-                                <td>$799</td>
+                                <td>Floral patchwork jacket</td>
+                                <td>₹790</td>
                                 <td>Due</td>
                                 <td>Pending</td>
                             </tr>

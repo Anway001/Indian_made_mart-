@@ -1,8 +1,12 @@
 import React from 'react'
 import './ProductPage.css'
+import axios from 'axios'
+
 
 
 function ProductPage() {
+
+
   return (
     <>
     <div class="product-container">

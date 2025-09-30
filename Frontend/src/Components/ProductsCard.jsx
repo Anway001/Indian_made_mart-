@@ -6,9 +6,7 @@ import Image from '../Images/1.jpg'
 
 function ProductCard() {
  const  navigate = useNavigate();
-  const handleClick = ()=>{
-    navigate('/productpage')
-  }
+
 
 
 
@@ -32,7 +30,7 @@ function ProductCard() {
             />
             <h3>Handwoven Rug</h3>
             <p>₹2500</p>
-            <button className='buyButton'onClick={handleClick}>View More</button>
+            <button className='buyButton'onClick={()=>  window.location.href = 'https://buy.stripe.com/test_28obKW7zr2568SI4gg' }>Buy </button>
           </div>
           <div className="productCard">
             <img
@@ -42,7 +40,17 @@ function ProductCard() {
             />
             <h3>Terracotta Pottery</h3>
             <p>₹950</p>
-            <button className='buyButton'onClick={handleClick}>View More</button>
+            <button className='buyButton' onClick={()=>  window.location.href = 'https://buy.stripe.com/test_3cs5my6vnh006KA6oq' }>Buy </button>
+          </div>
+          <div className="productCard">
+            <img
+              src="https://4.imimg.com/data4/II/AJ/MY-7980527/peacock-brass-handicraft-500x500.jpg"
+              alt="Product 1"
+              className="productImage"
+            />
+            <h3>Brass Handicraft</h3>
+            <p>₹500</p>
+            <button className='buyButton' onClick={()=> window.location.href = 'https://buy.stripe.com/test_cN22ambPHdNO3yo6op'}>BUY</button>
           </div>
           
           </div>

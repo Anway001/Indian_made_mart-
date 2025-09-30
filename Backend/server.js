@@ -18,9 +18,13 @@ app.get('/',(req,res)=>{
 })
 
 app.use(bodyParser.json());
-app.use(cors(
-    "https://indian-made-mart-adt2.vercel.app/"
-));
+app.use(cors({
+  origin: [
+    "https://indian-made-mart-adt2.vercel.app",   
+  ],
+  methods: ["GET","POST","PUT","DELETE","OPTIONS"], 
+  credentials: true,
+}));
 app.use('/auth',AuthRouter)
 app.use('/product',ProductRouter)
 app.use('/fashion',Fashion)

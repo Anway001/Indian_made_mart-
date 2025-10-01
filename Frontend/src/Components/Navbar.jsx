@@ -5,14 +5,16 @@ import { faUser } from '@fortawesome/free-solid-svg-icons'; // Import profile ic
 import './Navbar.css'; // Importing the CSS file
 import { FaRegUserCircle } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
+import { FaBars, FaTimes } from "react-icons/fa"; // Hamburger icons
 
 
 
 const Navbar = () => {
 
   // State to track if the user is logged in
-  const [isLoggedIn, setIsLoggedIn] = useState(false);      
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // For mobile menu
   const navigate = useNavigate();
   // Check login status on component mount
   useEffect(() => {
@@ -28,10 +30,14 @@ const Navbar = () => {
       setIsOpen(!isOpen);
   }
 
+  const toggleMenu = () => {
+      setIsMenuOpen(!isMenuOpen);
+  }
+
   const handleOptionClick = (option) => {
     if (option === 'Logout') {
         handleLogout();
-    } 
+    }
     else if (option === 'Profile') {
         navigate('/profile');
     }
@@ -39,6 +45,7 @@ const Navbar = () => {
         console.log(`${option} clicked`);
         setIsOpen(false);
     }
+    setIsMenuOpen(false); // Close mobile menu after action
 }
 
 
@@ -46,48 +53,45 @@ const Navbar = () => {
   const handleLogout = () => {
     localStorage.removeItem('token'); // Remove token from localStorage
     setIsLoggedIn(false); // Update state
-    navigate('/signup'); 
+    navigate('/signup');
   };
 
- 
+
 
   return (
     <nav className="navbar">
       <div className="navbarContent">
-      <Link to="/" className="logo" style={{ color: 'white' }}>
+        <Link to="/" className="logo" style={{ color: 'white' }}>
           IndianMadeMart
         </Link>
-        <ul className="navList">
-          <li className="navItem"><a href="/products" className="navLink">Products</a></li>
+        <div className="hamburger" onClick={toggleMenu}>
+          {isMenuOpen ? <FaTimes /> : <FaBars />}
+        </div>
+        <ul className={`navList ${isMenuOpen ? 'navList--open' : ''}`}>
+          <li className="navItem"><a href="/products" className="navLink" onClick={() => setIsMenuOpen(false)}>Products</a></li>
 
           {isLoggedIn ? (
             <>
               <li className="navItem">
-            <h1 className='user' onClick={toggleDropdown}>
-                
+                <h1 className='user' onClick={toggleDropdown}>
                   <FaRegUserCircle />
                   {isOpen && (
-                <div className="dropdown-menu">
-                    <button onClick={() => handleOptionClick('Profile')}>Profile</button>
-                    {/* <button onClick={() => handleOptionClick('Settings')}>Settings</button> */}
-                    <button onClick={handleLogout}>Logout</button>
-                </div>
-            )}
-            </h1>
-             
+                    <div className="dropdown-menu">
+                      <button onClick={() => handleOptionClick('Profile')}>Profile</button>
+                      <button onClick={handleLogout}>Logout</button>
+                    </div>
+                  )}
+                </h1>
               </li>
-            
-                  
+
               <li className="navItem">
-                <Link to ='/cart'  className="cart" >
-                 
+                <Link to='/cart' className="cart" onClick={() => setIsMenuOpen(false)}>
                   <FaShoppingCart />
-             </Link>
+                </Link>
               </li>
-              
             </>
           ) : (
-            <li className="navItem"><a href="/signup" className="navLink">Login</a></li>
+            <li className="navItem"><a href="/signup" className="navLink" onClick={() => setIsMenuOpen(false)}>Login</a></li>
           )}
         </ul>
       </div>
